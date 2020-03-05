@@ -5,15 +5,19 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-signin-client_id" content="831032422222-1vo1hs36kr7vtu6vajsialdf5bb57ms9.apps.googleusercontent.com">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="./assets/css/custome.css">
   <title>Weather Forecast</title>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <!-- NAVBAR -->
+<nav id="nav" class="navbar navbar-expand-lg navbar-light bg-primary">
   <div class="container">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -23,9 +27,9 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <!-- <li class="nav-item active">
+        <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li> -->
+        </li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
@@ -44,7 +48,95 @@
     </div>
   </div>
 </nav>
+<!-- END NAV -->
+<div id="login-bg">
+  <div class="header" >
+  <div class="inner-header flex">
+    <svg version="1.1" class="logo" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" xml:space="preserve">
+      <path fill="#FFFFFF" stroke="#000000" stroke-width="10" stroke-miterlimit="10" d="M57,283" />
+    </svg>
+    <!-- LOGIN -->
+    <div id="login" class="bg-login">
+    <div class="d-flex justify-content-center">
+      <div class="d-flex align-items-center pr-4"><h1>LOGIN</h1></div>
+      <form id="formLogin">
+        <div class="pl-5 my-2">
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        </div>
+        <div class="form-group">
+          <label for="emailLogin">Email address</label>
+          <input type="email" class="form-control" id="emailLogin" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="passwordLogin">Password</label>
+          <input type="password" class="form-control" id="passwordLogin" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-dark">Login</button>
+        <div>
+          <a href="#" id="btn-register">
+            <small class="form-text">Have account? please Register</small>
+          </a>
+        </div>
+      </form>
+    </div>
+    </div>
+    <!-- END LOGIN -->
+    
+    <!-- REGISTER -->
+    <div id="register" class="bg-login">
+    <div class="d-flex justify-content-center">
+      <div class="d-flex align-items-center pr-4">
+        <h1>REGISTER</h1>
+      </div>
+      <form id="formRegister">
+        <div class="form-group">
+          <label for="UsernameLogin">Username</label>
+          <input type="text" class="form-control" id="usernameLogin" placeholder="Enter Username">
+        </div>
+        <div class="form-group">
+          <label for="emailLogin">Email address</label>
+          <input type="email" class="form-control" id="emailLogin" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="passwordLogin">Password</label>
+          <input type="password" class="form-control" id="passwordLogin" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-dark">Register</button>
+        <div>
+          <a href="#" id="btn-login">
+            <small class="form-text">Have account? please Login</small>
+          </a>
+        </div>
+      </form>
+    </div>
+    </div>
+    <!-- END REGISTER -->
 
+  </div>
+
+  <!--Waves Container-->
+  <div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+      </g>
+    </svg>
+  </div>
+  <!--Waves end-->
+
+  </div>
+  <div class="content flex">
+    <p>2020 | Weather Forecast</p>
+  </div>
+</div>
 <div class="container ">
 <!-- CONTENT -->
 </div>
@@ -58,6 +150,14 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+    <!-- sweet alert -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.all.min.js">
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.min.js">
+      </script>
+    <!-- google -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
