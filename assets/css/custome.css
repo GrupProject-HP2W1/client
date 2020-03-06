@@ -1,3 +1,7 @@
+.bg-card {
+  background-color: rgba(0, 195, 255, 0.2);
+  border-radius: 20%;
+}
 .bg-login{
   background-color: rgba(0, 0, 0, 0.2);
   padding: 2%;
