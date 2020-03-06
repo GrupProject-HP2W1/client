@@ -147,6 +147,7 @@ function onSignIn(googleUser) {
       $('#nav').show();
       $('#home').show();
       $('#login').hide();
+      $('#login-bg').hide();
       $('#register').hide();
       const Toast = Swal.mixin({
         toast: true,
