@@ -19,9 +19,12 @@ if (TOKEN) {
   $('#nav').show();
   $('#home').show();
   $('#login-bg').hide();
+  $('#login').hide();
+  $('#register').hide();
 } else {
   $('#nav').hide();
   $('#home').hide();
+  $('#login-bg').show();
   $('#login').show();
   $('#register').hide();
 }
@@ -41,19 +44,26 @@ $('#btn-register').click(function (e) {
 // REGISTER
 $('#formRegister').submit(function (e) {
   e.preventDefault();
-  const username = $('#usernameRegister').val();
+  const name = $('#usernameRegister').val();
   const email = $('#emailRegister').val();
   const password = $('#passwordRegister').val();
   $.ajax({
       type: "POST",
       url: BASE_URL + "/user/register",
       data: {
-        username,
+        name,
         email,
         password
       },
     })
     .done(data => {
+      localStorage.setItem('token', data.token)
+      TOKEN = localStorage.getItem('token')
+      $('#nav').show();
+      $('#home').show();
+      $('#login-bg').hide();
+      $('#login').hide();
+      $('#register').hide();
       Swal.fire({
         title: 'Succes!',
         text: `Congratulation youre account has been create, Please Login`,
@@ -62,6 +72,7 @@ $('#formRegister').submit(function (e) {
       })
     })
     .fail(err => {
+      console.log(err.responseJSON)
       Swal.fire({
         title: 'Error!',
         html: `${errorMsg(err)}`,
@@ -90,6 +101,7 @@ $('#formLogin').submit(function (e) {
       TOKEN = localStorage.getItem('token')
       $('#nav').show();
       $('#home').show();
+      $('#login-bg').hide();
       $('#login').hide();
       $('#register').hide();
       const Toast = Swal.mixin({
@@ -177,5 +189,6 @@ $('#logout').click(function (e) {
   $('#nav').hide();
   $('#login-bg').show();
   $('#login').show();
+  $('#register').hide();
 });
 // END LOGOUT
